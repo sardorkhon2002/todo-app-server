@@ -3,9 +3,10 @@ import cors from "cors";
 import express, { Application, Response } from "express";
 import * as http from "http";
 import { Server, Socket } from "socket.io";
+import * as process from "process";
 
 export const app: Application = express();
-const port: number = 8080;
+const port: string = process.env.PORT || "8080";
 
 const server: http.Server = http.createServer(app);
 export const io: Server = new Server(server, {
